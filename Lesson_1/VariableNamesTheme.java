@@ -18,7 +18,7 @@ public class VariableNamesTheme {
         //процент по вкладу
         double depositInterest = 15e-2;
         //(переменная хранит символ) &
-        char andSymbol = '&';
+        char ampersand = '&';
         //код ошибки
         short codeError = 404;
         //тип сообщения
