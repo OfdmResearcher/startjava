@@ -68,7 +68,7 @@ public class VariableNamesTheme {
         System.out.println("вес собаки = " + weightDog);
         System.out.println("исходное число = " + originalNumber);
         System.out.println("процент по вкладу = " + depositInterest);
-        System.out.println("(переменная хранит символ) & = " + andSymbol);
+        System.out.println("(переменная хранит символ) & = " + ampersand);
         System.out.println("код ошибки = " + codeError);
         System.out.println("тип сообщения = " + typeMessage);
         System.out.println("число нулей = " + numberZeros);
