@@ -90,8 +90,8 @@ public class VariablesTheme {
 
         System.out.println(dollar + "  " + asterisk + "  " + atSign +
                 "   " + verticalBar + "   " + tilda);
-        System.out.println((int)dollar + " " + (int)asterisk + " " + (int)atSign +
-                " " + (int)verticalBar + " " + (int)tilda);
+        System.out.println((int) dollar + " " + (int) asterisk + " " + (int) atSign +
+                " " + (int) verticalBar + " " + (int) tilda);
 
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
         char slash = '/';
