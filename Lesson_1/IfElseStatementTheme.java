@@ -87,20 +87,11 @@ public class IfElseStatementTheme {
 
         System.out.println("\n5. Определение символа по его коду");
         char symbol = '\u0057';
-        if (symbol == 'A' || symbol == 'B' || symbol == 'C' || symbol == 'D' || symbol == 'E' || symbol == 'F' ||
-                symbol == 'G' || symbol == 'H' || symbol == 'I' || symbol == 'J' || symbol == 'K' || symbol == 'L' ||
-                symbol == 'M' || symbol == 'N' || symbol == 'O' || symbol == 'P' || symbol == 'Q' || symbol == 'R' ||
-                symbol == 'S' || symbol == 'T' || symbol == 'U' || symbol == 'V' || symbol == 'W' || symbol == 'X' ||
-                symbol == 'Y' || symbol == 'Z') {
+        if (symbol >= 'A' && symbol <= 'Z') {
             System.out.println(symbol + " большая буква");
-        } else if (symbol == 'a' || symbol == 'b' || symbol == 'c' || symbol == 'd' || symbol == 'e' || symbol == 'f' ||
-                symbol == 'g' || symbol == 'h' || symbol == 'i' || symbol == 'j' || symbol == 'k' || symbol == 'l' ||
-                symbol == 'm' || symbol == 'n' || symbol == 'o' || symbol == 'p' || symbol == 'q' || symbol == 'r' ||
-                symbol == 's' || symbol == 't' || symbol == 'u' || symbol == 'v' || symbol == 'w' || symbol == 'x' ||
-                symbol == 'y' || symbol == 'z') {
+        } else if (symbol >= 'a' && symbol <= 'z') {
             System.out.println(symbol + " маленькая буква");
-        } else if (symbol == '0' || symbol == '1' || symbol == '2' || symbol == '3' || symbol == '4' || symbol == '5' ||
-                symbol == '6' || symbol == '7' || symbol == '8' || symbol == '9') {
+        } else if (symbol >= '0' && symbol <= '9') {
             System.out.println(symbol + " цифра");
         } else {
             System.out.println(symbol + " не буква и не цифра");
@@ -119,22 +110,18 @@ public class IfElseStatementTheme {
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercent = 59;
-        int historyGrade = 0;
-        if (historyPercent <= 60) {
-            historyGrade = 2;
-        } else if (historyPercent > 60 && historyPercent <= 73) {
+        int historyGrade = 2;
+        if (historyPercent > 60 && historyPercent <= 73) {
             historyGrade = 3;
         } else if (historyPercent > 73 && historyPercent <= 91) {
-            historyGrade = 4;
-        } else if (historyPercent > 91) {
+            historyGrade = 4
+;        } else if (historyPercent > 91) {
             historyGrade = 5;
         }
 
         int programmingPercent = 92;
-        int programmingGrade = 0;
-        if (programmingPercent <= 60) {
-            programmingGrade = 2;
-        } else if (programmingPercent > 60 && programmingPercent <= 73) {
+        int programmingGrade = 2;
+        if (programmingPercent > 60 && programmingPercent <= 73) {
             programmingGrade = 3;
         } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingGrade = 4;
