@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class VariablesTheme {
     public static void main(String[] args) {
@@ -25,11 +26,11 @@ public class VariablesTheme {
         double penPrice = 105.5;
         double bookPrice = 235.83;
         double discount = 0.11;
-        double totalSumWithoutDiscount = penPrice + bookPrice;
+        double basePrice = penPrice + bookPrice;
         double discountSum = discount * (penPrice + bookPrice);
-        double discountPrice = totalSumWithoutDiscount - discountSum;
+        double discountPrice = basePrice - discountSum;
 
-        System.out.println("Стоимость товаров без скидки: " + totalSumWithoutDiscount);
+        System.out.println("Стоимость товаров без скидки: " + basePrice);
         System.out.println("Сумма скидки: " + discountSum);
         System.out.println("Стоимость товаров со скидкой: " + discountPrice);
 
@@ -44,6 +45,7 @@ public class VariablesTheme {
         short shortMax = 32767;
         int intMax = 2_147_483_647;
         long longMax = Long.MAX_VALUE;
+        char charMax = Character.MAX_VALUE;
 
         System.out.println("первоначальное значение: " + byteMax);
         System.out.println("значение после инкремента на единицу: " + ++byteMax);
@@ -57,6 +59,9 @@ public class VariablesTheme {
         System.out.println("первоначальное значение: " + longMax);
         System.out.println("значение после инкремента на единицу: " + ++longMax);
         System.out.println("значение после декремента на единицу: " + --longMax);
+        System.out.println("первоначальное значение: " + charMax);
+        System.out.println("значение после инкремента на единицу: " + ++charMax);
+        System.out.println("значение после декремента на единицу: " + --charMax);
 
         System.out.println("\n5. Перестановка значений переменных");
         int a = 2;
@@ -79,7 +84,7 @@ public class VariablesTheme {
         System.out.println("Перестановка  с помощью побитовой операции ^: ");
         System.out.println("Исходные значения: " + a + " и " + b);
         a ^= b;
-        b = a ^ b;
+        b ^= a;
         a ^= b;
         System.out.println("Новые значения: " + a + " и " + b);
 
@@ -116,33 +121,31 @@ public class VariablesTheme {
         int hundreds = number / 100;
         int tens = number % 100 / 10;
         int ones = number % 10;
-        int sumNumbers = hundreds + tens + ones;
-        int multiplicationNumbers = hundreds * tens * ones;
+        int numbersSum = hundreds + tens + ones;
+        int numbersProduct = hundreds * tens * ones;
 
         System.out.println("Число " + number + " содержит:\n  сотен - " +
                 hundreds + "\n  десятков - " + tens + "\n  единиц - " +
-                ones + "\nСумма его цифр = " + sumNumbers +
-                "\nПроизведение = " + multiplicationNumbers);
+                ones + "\nСумма его цифр = " + numbersSum +
+                "\nПроизведение = " + numbersProduct);
 
         System.out.println("\n9. Перевод секунд в часы, минуты и секунды");
-        int totalNumberSeconds = 86399;
-        int hours = totalNumberSeconds / 3600;
-        int minutes = totalNumberSeconds % 3600 / 60;
-        int seconds = totalNumberSeconds % 3600 % 60;
+        int totalSeconds = 86399;
+        int hh = totalSeconds / 3600;
+        int mm = totalSeconds % 3600 / 60;
+        int ss = totalSeconds % 3600 % 60;
 
-        System.out.println(hours + ":" + minutes + ":" + seconds);
+        System.out.println(hh + ":" + mm + ":" + ss);
 
         System.out.println("\n10. Расчет стоимости товара со скидкой");
         BigDecimal penPrice2 = new BigDecimal("105.5");
         BigDecimal bookPrice2 = new BigDecimal("235.83");
         BigDecimal discount2 = new BigDecimal("0.11");
-        BigDecimal totalSumWithoutDiscount2 = penPrice2.add(bookPrice2).setScale(2, BigDecimal.ROUND_HALF_UP);
-        BigDecimal discountSum2 = discount2.multiply(totalSumWithoutDiscount2).setScale(2, 
-                BigDecimal.ROUND_HALF_UP);
-        BigDecimal discountPrice2 = totalSumWithoutDiscount2.subtract(discountSum2).setScale(2, 
-                BigDecimal.ROUND_HALF_UP);
+        BigDecimal basePrice2 = penPrice2.add(bookPrice2).setScale(2, RoundingMode.HALF_DOWN);
+        BigDecimal discountSum2 = discount2.multiply(basePrice2).setScale(2, RoundingMode.HALF_DOWN);
+        BigDecimal discountPrice2 = basePrice2.subtract(discountSum2).setScale(2, RoundingMode.HALF_DOWN);
 
-        System.out.println("Стоимость товаров без скидки: " + totalSumWithoutDiscount2);
+        System.out.println("Стоимость товаров без скидки: " + basePrice2);
         System.out.println("Сумма скидки: " + discountSum2);
         System.out.println("Стоимость товаров со скидкой: " + discountPrice2);
     }
