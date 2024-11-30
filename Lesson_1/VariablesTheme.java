@@ -6,8 +6,8 @@ public class VariablesTheme {
         System.out.println("1. Вывод характеристик компьютера");
         byte cpuCores = 10;
         short cpuModel = 12500;
-        int ramMemory = 8192;
-        long hddMemory = 536_870_912L;
+        int ramSize = 8192;
+        long hddCapacity = 536_870_912L;
         char cpuSerial = 'i';
         boolean isTurnedOn = false;
         float price = 500.35F;
@@ -15,8 +15,8 @@ public class VariablesTheme {
 
         System.out.println("Количество ядер процессора: " + cpuCores);
         System.out.println("Модель процессора: " + cpuModel);
-        System.out.println("Оперативная память: " + ramMemory);
-        System.out.println("Память жесткого диска: " + hddMemory);
+        System.out.println("Оперативная память: " + ramSize);
+        System.out.println("Память жесткого диска: " + hddCapacity);
         System.out.println("Серия процессора: " + cpuSerial);
         System.out.println("Включен ли компьютер: " + isTurnedOn);
         System.out.println("Цена компьютера: " + price);
@@ -133,7 +133,7 @@ public class VariablesTheme {
         int totalSeconds = 86399;
         int hh = totalSeconds / 3600;
         int mm = totalSeconds % 3600 / 60;
-        int ss = totalSeconds % 3600 % 60;
+        int ss = totalSeconds % 60;
 
         System.out.println(hh + ":" + mm + ":" + ss);
 

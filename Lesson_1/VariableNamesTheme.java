@@ -110,8 +110,8 @@ public class VariableNamesTheme {
         System.out.println("путь до файла = " + filePath);
 
         // количество чисел в каждой строке
-        int amountOfNumbersInEachString = 23;
-        System.out.println("количество чисел в каждой строке = " + amountOfNumbersInEachString);
+        int amountOfNumbersPerString = 23;
+        System.out.println("количество чисел в каждой строке = " + amountOfNumbersPerString);
 
         System.out.println("\n2. boolean-переменные");
         // сотни равны?
@@ -143,8 +143,8 @@ public class VariableNamesTheme {
         System.out.println("новое? = " + isNew);
 
         // электронная почта действительная?
-        boolean isEmailReal = true;
-        System.out.println("электронная почта действительная? = " + isEmailReal);
+        boolean isValidEmail = true;
+        System.out.println("электронная почта действительная? = " + isValidEmail);
 
         // имеются уникальные строки?
         boolean hasUniqueStrings = true;
@@ -172,8 +172,8 @@ public class VariableNamesTheme {
         System.out.println("сокращенный uniform resource locator = " + shortUrl);
 
         // новый идентификатор клиента
-        int newClientId = 4578;
-        System.out.println("новый идентификатор клиента = " + newClientId);
+        int newCid = 4578;
+        System.out.println("новый идентификатор клиента = " + newCid);
 
         // кодировка american standard code for information interchange
         int ascii = 6;

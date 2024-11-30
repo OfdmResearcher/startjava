@@ -36,13 +36,13 @@ public class IfElseStatementTheme {
 
         System.out.println("\n 2. Поиск большего числа");
         int firstValue = 25;
-        int secondValue = 15;
+        int secondValue = 5;
         if (firstValue > secondValue) {
-            System.out.println("First value is bigger then the second one");
+            System.out.println(firstValue + " (первое число) больше " + secondValue + " (второе число)");
         } else if (firstValue < secondValue) {
-            System.out.println("Second value is bigger then the first one");
+            System.out.println(secondValue + " (второе число) больше " + firstValue + " (первое число)");
         } else {
-            System.out.println("The numbers are equal");
+            System.out.println("Числа равны и их значение - " + firstValue);
         }
 
         System.out.println("\n 3. Проверка числа");
@@ -59,7 +59,7 @@ public class IfElseStatementTheme {
                 System.out.println("нечетным");
             }
         } else {
-            System.out.println(number + " является нулем");
+            System.out.println("Число является нулем");
         }
 
         System.out.println("\n 4. Поиск одинаковых цифр в числах");
@@ -67,7 +67,7 @@ public class IfElseStatementTheme {
         int number2 = 223;
         int hundreds1 = number1 / 100;
         int hundreds2 = number2 / 100;
-        int tens1 = number1 % 100 / 10 ;
+        int tens1 = number1 % 100 / 10;
         int tens2 = number2 % 100 / 10;
         int ones1 = number1 % 10;
         int ones2 = number2 % 10;
@@ -79,7 +79,7 @@ public class IfElseStatementTheme {
             if (tens1 == tens2) {
                 System.out.println(tens1 + " - второй разряд");
             }
-            if (ones1 == ones2){
+            if (ones1 == ones2) {
                 System.out.println(ones1 + " - первый разряд");
             }
         } else {
@@ -111,30 +111,30 @@ public class IfElseStatementTheme {
                 (deposit + deposit * percentage) + " - итоговая сумма с %");
 
         System.out.println("\n7. Определение оценки по предметам");
-        int history = 59;
+        int historyPercentage = 59;
         int historyGrade = 5;
-        if (history <= 60) {
+        if (historyPercentage <= 60) {
             historyGrade = 2;
-        } else if (history > 60 && history <= 73) {
+        } else if (historyPercentage > 60 && historyPercentage <= 73) {
             historyGrade = 3;
-        } else if (history > 73 && history <= 91) {
+        } else if (historyPercentage > 73 && historyPercentage <= 91) {
             historyGrade = 4;
         }
         System.out.println("История - " + historyGrade);
 
-        int programming = 92;
+        int programmingPercenatge = 92;
         int programmingGrade = 5;
-        if (programming <= 60) {
+        if (programmingPercenatge <= 60) {
             programmingGrade = 2;
-        } else if (programming > 60 && programming <= 73) {
+        } else if (programmingPercenatge > 60 && programmingPercenatge <= 73) {
             programmingGrade = 3;
-        } else if (programming > 73 && programming <= 91) {
+        } else if (programmingPercenatge > 73 && programmingPercenatge <= 91) {
             programmingGrade = 4;
         }
         System.out.println("Программирование - " + programmingGrade);
 
         double avgScore = (historyGrade + programmingGrade) / 2;
-        double avgPercentage = (history + programming) / 2;
+        double avgPercentage = (historyPercentage + programmingPercenatge) / 2;
         System.out.println("Cредний балл оценок по предметам - " + avgScore);
         System.out.println("Средний % по предметам - " + avgPercentage);
 
@@ -142,7 +142,7 @@ public class IfElseStatementTheme {
         double monthlyPrice = 13025.233;
         double rentalPrice = 5123.018;
         double productionCost = 9001.729;
-        double profit = (monthlyPrice * 12) - (rentalPrice * 12) - (productionCost * 12);
+        double profit = 12 * (monthlyPrice - rentalPrice - productionCost);
         if (profit <= 0) {
             System.out.println("Прибыль за год: " + profit + " руб.");
         } else {
@@ -152,31 +152,27 @@ public class IfElseStatementTheme {
         System.out.println("\n9. Подсчет начисленных банком % с BigDecimal");
         BigDecimal deposit2 = new BigDecimal("321123.59");
         BigDecimal percentage2 = new BigDecimal("0.1");
-        if (deposit2.compareTo(new BigDecimal("100000.00")) == -1) {
+        if (deposit2.compareTo(BigDecimal.valueOf(100000)) == -1) {
             percentage2 = new BigDecimal("0.05");
-        } else if (((deposit2.compareTo(new BigDecimal("100000.00")) == 0) ||
-                (deposit2.compareTo(new BigDecimal("100000.00")) == 1)) &&
-                ((deposit2.compareTo(new BigDecimal("300000.00")) == -1) ||
-                (deposit2.compareTo(new BigDecimal("100000.00")) == 0))) {
+        } else if (deposit2.compareTo(BigDecimal.valueOf(300000)) <= 0) {
             percentage2 = new BigDecimal("0.07");
         }
         System.out.println(deposit2 + " - сумма вклада\n" +
                 (deposit2.multiply(percentage2).setScale(2, RoundingMode.HALF_DOWN)) +
                 " - сумма начисленного %\n" +
                 (deposit2.add(deposit2.multiply(percentage2).setScale(2, RoundingMode.HALF_DOWN)) +
-                " - итоговая сумма с %"));
+                        " - итоговая сумма с %"));
 
         System.out.println("\n10. Расчет годовой прибыли с BigDecimal");
         BigDecimal monthlyPrice2 = new BigDecimal("13025.233");
         BigDecimal rentalPrice2 = new BigDecimal("5123.018");
         BigDecimal productionCost2 = new BigDecimal("9001.729");
-        BigDecimal numberOfMonths = new BigDecimal("12");
+        BigDecimal numberOfMonths = BigDecimal.valueOf(12);
         BigDecimal profitPerYear = monthlyPrice2.multiply(numberOfMonths);
         BigDecimal rentalPerYear = rentalPrice2.multiply(numberOfMonths);
         BigDecimal productionCostPerYear = productionCost2.multiply(numberOfMonths);
         BigDecimal profit2 = profitPerYear.subtract(rentalPerYear.add(productionCostPerYear));
-        if ((profit2.compareTo(new BigDecimal("0")) == -1) ||
-                (profit2.compareTo(new BigDecimal("0")) == 0)) {
+        if ((profit2.compareTo(BigDecimal.ZERO) <= 0)) {
             System.out.println("Прибыль за год: " + profit2.setScale(2, RoundingMode.HALF_DOWN) + " руб.");
         } else {
             System.out.println("Прибыль за год: +" + profit2.setScale(2, RoundingMode.HALF_DOWN) + " руб.");
