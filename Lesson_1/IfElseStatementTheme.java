@@ -35,14 +35,14 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n 2. Поиск большего числа");
-        int firstValue = 25;
-        int secondValue = 5;
-        if (firstValue > secondValue) {
-            System.out.println(firstValue + " (первое число) больше " + secondValue + " (второе число)");
-        } else if (firstValue < secondValue) {
-            System.out.println(secondValue + " (второе число) больше " + firstValue + " (первое число)");
+        int firstNumber = 25;
+        int secondNumber = 5;
+        if (firstNumber > secondNumber) {
+            System.out.println(firstNumber + " (первое число) больше " + secondNumber + " (второе число)");
+        } else if (firstNumber < secondNumber) {
+            System.out.println(secondNumber + " (второе число) больше " + firstNumber + " (первое число)");
         } else {
-            System.out.println("Числа равны и их значение - " + firstValue);
+            System.out.println("Числа равны и их значение - " + firstNumber);
         }
 
         System.out.println("\n 3. Проверка числа");
@@ -133,9 +133,9 @@ public class IfElseStatementTheme {
         }
         System.out.println("Программирование - " + programmingGrade);
 
-        double avgScore = (historyGrade + programmingGrade) / 2;
+        double avgGrade = (historyGrade + programmingGrade) / 2;
         double avgPercentage = (historyPercentage + programmingPercenatge) / 2;
-        System.out.println("Cредний балл оценок по предметам - " + avgScore);
+        System.out.println("Cредний балл оценок по предметам - " + avgGrade);
         System.out.println("Средний % по предметам - " + avgPercentage);
 
         System.out.println("\n8. Расчет годовой прибыли");
