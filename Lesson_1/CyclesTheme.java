@@ -132,21 +132,21 @@ public class CyclesTheme {
         System.out.println("\n9. Проверка, является ли число счастливым");
         int number4 = 524452;
         currNumber = number4;
-        int sumFirstThreeDigits = 0;
-        int sumLastThreeDigits = 0;
+        int firstThreeDigitsSum = 0;
+        int lastThreeDigitsSum = 0;
         for (int i = 0; i < 6; i++) {
             int digit = currNumber % 10;
             if (i < 3) {
-                sumLastThreeDigits += digit;
+                lastThreeDigitsSum += digit;
             } else {
-                sumFirstThreeDigits += digit;
+                firstThreeDigitsSum += digit;
             }
             currNumber /= 10;
         }
-        if (sumLastThreeDigits == sumFirstThreeDigits) {
+        if (lastThreeDigitsSum == firstThreeDigitsSum) {
             System.out.println("Число " + number4 + " - счастливое\n" +
-                    "Сумма цифр " + (number4 / 1000) + " = " + sumFirstThreeDigits + "\n" +
-                    "Сумма цифр " + (number4 % 1000) + " = " + sumLastThreeDigits);
+                    "Сумма цифр " + (number4 / 1000) + " = " + firstThreeDigitsSum + "\n" +
+                    "Сумма цифр " + (number4 % 1000) + " = " + lastThreeDigitsSum);
         } else {
             System.out.println("Число " + number4 + " - не счастливое");
         }
