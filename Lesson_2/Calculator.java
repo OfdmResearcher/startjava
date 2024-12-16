@@ -24,14 +24,14 @@ public class Calculator {
             case '^':
                 result = 1;
                 int tempNumber = secondNumber;
-                while (tempNumber != 0) {
-                    if (tempNumber > 0) {
-                        result *= firstNumber;
-                        tempNumber--;
-                    } else {
-                        result = result * (1 / (double) firstNumber);
-                        tempNumber++;
-                    }
+                if (tempNumber < 0) {
+                    tempNumber *= -1;
+                }
+                for (int i = 0; i < tempNumber; i++) {
+                    result *= firstNumber;
+                }
+                if (secondNumber < 0) {
+                    result = 1 / result;
                 }
                 break;
             default:
