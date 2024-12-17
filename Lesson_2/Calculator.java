@@ -23,16 +23,10 @@ public class Calculator {
                 break;
             case '^':
                 result = 1;
-                int tempNumber = secondNumber;
-                if (tempNumber < 0) {
-                    tempNumber *= -1;
-                }
-                for (int i = 0; i < tempNumber; i++) {
+                for (int i = 0; i < Math.abs(secondNumber); i++) {
                     result *= firstNumber;
                 }
-                if (secondNumber < 0) {
-                    result = 1 / result;
-                }
+                result = secondNumber < 0 ? 1 / result : result;
                 break;
             default:
                 System.out.println("Ошибка: операция '" + sign + "' не поддерживается");
