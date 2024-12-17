@@ -30,5 +30,6 @@ public class GuessNumber {
         } else {
             System.out.println("Выиграл второй игрок - " + player2.getName());
         }
+        sc.nextLine();
     }
 }
