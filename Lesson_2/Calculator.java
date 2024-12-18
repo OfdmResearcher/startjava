@@ -30,6 +30,7 @@ public class Calculator {
                 break;
             default:
                 System.out.println("Ошибка: операция '" + sign + "' не поддерживается");
+                return;
         }
         System.out.println(firstNumber + " " + sign + " " + secondNumber + " = " + result);
     }
