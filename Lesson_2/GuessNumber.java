@@ -12,31 +12,30 @@ public class GuessNumber {
     public void start(Scanner sc) {
         int targetNumber = (int) (Math.random() * 100 + 1);
         while (true) {
-            System.out.print("Введите число: ");
-            player1.setNumber(sc.nextInt());
-            int playerNumber1 = player1.getNumber();
-            if (playerNumber1 == targetNumber) {
-                System.out.println("Выиграл первый игрок - " + player1.getName());
+            if (targetNumber == enterPlayerNumber(player1, targetNumber, sc)) {
+                sc.nextLine();
                 break;
             }
-            if (playerNumber1 > targetNumber) {
-                System.out.println(playerNumber1 + " больше того, что загадал компьютер");
-            } else {
-                System.out.println(playerNumber1 + " меньше того, что загадал компьютер");
-            }
-            System.out.print("Введите число: ");
-            player2.setNumber(sc.nextInt());
-            int playerNumber2 = player2.getNumber();
-            if (playerNumber2 == targetNumber) {
-                System.out.println("Выиграл второй игрок - " + player2.getName());
+            if (targetNumber == enterPlayerNumber(player2, targetNumber, sc)) {
+                sc.nextLine();
                 break;
-            }
-            if (playerNumber2 > targetNumber) {
-                System.out.println(playerNumber2 + " больше того, что загадал компьютер");
-            } else {
-                System.out.println(playerNumber2 + " меньше того, что загадал компьютер");
             }
         }
-        sc.nextLine();
+    }
+
+    private int enterPlayerNumber(Player player, int targetNumber, Scanner sc) {
+        System.out.print("Введите число: ");
+        player.setNumber(sc.nextInt());
+        int playerNumber = player.getNumber();
+        if (playerNumber == targetNumber) {
+            System.out.println("Выиграл игрок - " + player.getName());
+            return targetNumber;
+        }
+        if (playerNumber > targetNumber) {
+            System.out.println(playerNumber + " больше того, что загадал компьютер");
+        } else {
+            System.out.println(playerNumber + " меньше того, что загадал компьютер");
+        }
+        return playerNumber;
     }
 }
