@@ -9,33 +9,42 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public void start(Scanner sc) {
+    public void start(Scanner scanner) {
         int targetNumber = (int) (Math.random() * 100 + 1);
-        while (true) {
-            if (targetNumber == enterPlayerNumber(player1, targetNumber, sc)) {
-                sc.nextLine();
-                break;
-            }
-            if (targetNumber == enterPlayerNumber(player2, targetNumber, sc)) {
-                sc.nextLine();
-                break;
-            }
-        }
+        checkNumbers(player1, player2, targetNumber, scanner);
     }
 
-    private int enterPlayerNumber(Player player, int targetNumber, Scanner sc) {
+    private int enterPlayerNumber(Player player, Scanner sc) {
         System.out.print("Введите число: ");
         player.setNumber(sc.nextInt());
-        int playerNumber = player.getNumber();
+        return player.getNumber();
+    }
+
+    private boolean isPlayerNumberEqualsTargetNumber(int playerNumber, int targetNumber, Player player) {
         if (playerNumber == targetNumber) {
             System.out.println("Выиграл игрок - " + player.getName());
-            return targetNumber;
+            return true;
         }
         if (playerNumber > targetNumber) {
             System.out.println(playerNumber + " больше того, что загадал компьютер");
         } else {
             System.out.println(playerNumber + " меньше того, что загадал компьютер");
         }
-        return playerNumber;
+        return false;
+    }
+
+    private void checkNumbers(Player player1, Player player2, int targetNumber, Scanner scanner) {
+        while (true) {
+            int playerNumber1 = enterPlayerNumber(player1, scanner);
+            if (isPlayerNumberEqualsTargetNumber(playerNumber1, targetNumber, player1)) {
+                scanner.nextLine();
+                break;
+            }
+            int playerNumber2 = enterPlayerNumber(player2, scanner);
+            if (isPlayerNumberEqualsTargetNumber(playerNumber2, targetNumber, player2)) {
+                scanner.nextLine();
+                break;
+            }
+        }
     }
 }
