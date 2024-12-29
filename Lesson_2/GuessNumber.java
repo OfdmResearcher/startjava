@@ -11,40 +11,39 @@ public class GuessNumber {
 
     public void start(Scanner scanner) {
         int targetNumber = (int) (Math.random() * 100 + 1);
-        checkNumbers(player1, player2, targetNumber, scanner);
+        makeMove(targetNumber, scanner);
     }
 
-    private int enterPlayerNumber(Player player, Scanner sc) {
+    private void makeMove(int targetNumber, Scanner scanner) {
+        while (true) {
+            enterPlayerNumber(player1, scanner);
+            if (isGuessed(targetNumber, player1)) {
+                scanner.nextLine();
+                break;
+            }
+            enterPlayerNumber(player2, scanner);
+            if (isGuessed(targetNumber, player2)) {
+                scanner.nextLine();
+                break;
+            }
+        }
+    }
+
+    private void enterPlayerNumber(Player player, Scanner sc) {
         System.out.print("Введите число: ");
         player.setNumber(sc.nextInt());
-        return player.getNumber();
     }
 
-    private boolean isPlayerNumberEqualsTargetNumber(int playerNumber, int targetNumber, Player player) {
-        if (playerNumber == targetNumber) {
+    private boolean isGuessed(int targetNumber, Player player) {
+        if (player.getNumber() == targetNumber) {
             System.out.println("Выиграл игрок - " + player.getName());
             return true;
         }
-        if (playerNumber > targetNumber) {
-            System.out.println(playerNumber + " больше того, что загадал компьютер");
+        if (player.getNumber() > targetNumber) {
+            System.out.println(player.getNumber() + " больше того, что загадал компьютер");
         } else {
-            System.out.println(playerNumber + " меньше того, что загадал компьютер");
+            System.out.println(player.getNumber() + " меньше того, что загадал компьютер");
         }
         return false;
-    }
-
-    private void checkNumbers(Player player1, Player player2, int targetNumber, Scanner scanner) {
-        while (true) {
-            int playerNumber1 = enterPlayerNumber(player1, scanner);
-            if (isPlayerNumberEqualsTargetNumber(playerNumber1, targetNumber, player1)) {
-                scanner.nextLine();
-                break;
-            }
-            int playerNumber2 = enterPlayerNumber(player2, scanner);
-            if (isPlayerNumberEqualsTargetNumber(playerNumber2, targetNumber, player2)) {
-                scanner.nextLine();
-                break;
-            }
-        }
     }
 }
