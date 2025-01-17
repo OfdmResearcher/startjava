@@ -15,23 +15,21 @@ public class GuessNumber {
     }
 
     private void makeMove(int targetNumber, Scanner scanner) {
-        while (true) {
-            enterPlayerNumber(player1, scanner);
-            if (isGuessed(targetNumber, player1)) {
-                scanner.nextLine();
+        Player currPlayer = player1;
+        do {
+            enterPlayerNumber(currPlayer, scanner);
+            boolean isNumberGuessed = isGuessed(targetNumber, currPlayer);
+            if (isNumberGuessed) {
                 break;
             }
-            enterPlayerNumber(player2, scanner);
-            if (isGuessed(targetNumber, player2)) {
-                scanner.nextLine();
-                break;
-            }
-        }
+            currPlayer = currPlayer == player1 ? player2 : player1;
+        } while (true);
+        scanner.nextLine();
     }
 
-    private void enterPlayerNumber(Player player, Scanner sc) {
+    private void enterPlayerNumber(Player player, Scanner scanner) {
         System.out.print("Введите число: ");
-        player.setNumber(sc.nextInt());
+        player.setNumber(scanner.nextInt());
     }
 
     private boolean isGuessed(int targetNumber, Player player) {
