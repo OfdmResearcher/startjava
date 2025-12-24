@@ -87,12 +87,12 @@ public class VariableNamesTheme {
         System.out.println("окончание диапазона: " + rangeEnd);
         
         // имя работника месяца
-        String employeeOfTheMonthName = "Bob";
-        System.out.println("имя работника месяца: " + employeeOfTheMonthName);
+        String employeeOfMonthName = "Bob";
+        System.out.println("имя работника месяца: " + employeeOfMonthName);
         
         // название электронной книги
-        String electronicBookName = "The war and piece";
-        System.out.println("название электронной книги: " + electronicBookName);
+        String ebookTitle = "The war and piece";
+        System.out.println("название электронной книги: " + ebookTitle);
         
         // размер
         String size = "XXL";
@@ -107,15 +107,14 @@ public class VariableNamesTheme {
         System.out.println("счетчик: " + counter);
         
         // путь до файла
-        String filepath = "C:\\StartJava\\Lesson_1";
-        System.out.println("путь до файла: " + filepath);
+        String filePath = "C:\\StartJava\\Lesson_1";
+        System.out.println("путь до файла: " + filePath);
         
         // количество чисел в строке
         int numbersInLineCount = 4;
         System.out.println("количество чисел в строке: " + numbersInLineCount);
-        System.out.println();
 
-        System.out.println("2. BOOLEAN-ПЕРЕМЕННЫЕ");
+        System.out.println("\n2. BOOLEAN-ПЕРЕМЕННЫЕ");
         
         // сотни равны?
         boolean hasEqualHundreds = true;
@@ -130,8 +129,8 @@ public class VariableNamesTheme {
         System.out.println("есть равные цифры? " + hasEqualDigits);
         
         // служба создана?
-        boolean isServiceCreated = false;
-        System.out.println("служба создана? " + isServiceCreated);
+        boolean isCreatedService = false;
+        System.out.println("служба создана? " + isCreatedService);
         
         // файл пустой?
         boolean isEmptyFile = true;
@@ -152,9 +151,8 @@ public class VariableNamesTheme {
         // имеются уникальные строки?
         boolean hasUniqueLines = true;
         System.out.println("имеются уникальные строки? " + hasUniqueLines);
-        System.out.println();
 
-        System.out.println("3. АББРЕВИАТУРЫ");
+        System.out.println("\n3. АББРЕВИАТУРЫ");
         
         // старый universally unique identifier
         int oldUuid = 324;
@@ -165,25 +163,24 @@ public class VariableNamesTheme {
         System.out.println("производитель оперативной памяти: " + ramManufacturer);
         
         // емкость жесткого диска
-        int hdd = 512;
-        System.out.println("емкость жесткого диска: " + hdd);
+        int hardDriveCapacity = 512;
+        System.out.println("емкость жесткого диска: " + hardDriveCapacity);
         
         // определение термина протокола передачи гипертекста
         String httpDefinition = "Используется для обмена данными и загрузки веб-страниц";
-        System.out.println("определение термина протокола передачи гипертекста: " + 
-                httpDefinition);
+        System.out.println("определение термина протокола передачи гипертекста: " + httpDefinition);
         
         // сокращенный uniform resource locator
-        String cutUrl = "bit.ly/3xYz7Ab";
-        System.out.println("сокращенный uniform resource locator: " + cutUrl);
+        String shortUrl = "bit.ly/3xYz7Ab";
+        System.out.println("сокращенный uniform resource locator: " + shortUrl);
         
         // новый идентификатор клиента
-        String newClientId = "47LXVe219";
-        System.out.println("новый идентификатор клиента: " + newClientId);
+        String newCid = "47LXVe219";
+        System.out.println("новый идентификатор клиента: " + newCid);
         
         // количество символов в American standard code for information interchange
         int asciiSymbolsCount = 256;
-        System.out.println("количество символов в American standard code for information " + 
-                "interchange: " + asciiSymbolsCount);
+        System.out.println("количество символов в " +
+                "American standard code for information interchange: " + asciiSymbolsCount);
     }
 }
