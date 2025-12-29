@@ -5,104 +5,95 @@ import java.time.format.DateTimeFormatter;
 
 public class VariablesTheme {
     public static void main(String[] args) {
-        final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
         final LocalTime startLocalTime = LocalTime.now();
-        final double start = System.nanoTime() / 1_000_000_000.0;
+        final double start = System.nanoTime() / 1e9;
 
         System.out.println("1. ВЫВОД ASCII-ГРАФИКИ");
-        String firstCaseFirstTaskResult = String.join("\n", "                     /\\", 
+        System.out.println(String.join("\n", "                     /\\", 
                 "   J    a  v     v  /  \\", 
                 "   J   a a  v   v  /_( )\\",
                 "J  J  aaaaa  v v  /      \\",
-                " JJ  a     a  v  /___/\\___\\");
-        System.out.println(firstCaseFirstTaskResult);
-        String secondCaseFirstTaskResult = """
-                         /\\            
+                " JJ  a     a  v  /___/\\___\\"));
+        System.out.println("""
+                \n         /\\            
                    J    /  \\  v     v  a
                    J   /_( )\\  v   v  a a
                 J  J  /      \\  V V  aaaaa
                  JJ  /___/\\___\\  V  a     a
-                """;
-        System.out.println(secondCaseFirstTaskResult);
+                """);
 
         System.out.println("2. РАСЧЕТ СТОИМОСТИ ТОВАРА");
-        float pen = 105.5f;
-        float book = 235.23f;
+        float penPrice = 105.5f;
+        float bookPrice = 235.23f;
         float discount = 0.11f;
-        float withoutDiscountPrice = pen + book;
-        float discountSum = (pen + book) * discount;
-        float discountPrice = withoutDiscountPrice - discountSum;
-        System.out.println("стоимость товаров без скидки: " + withoutDiscountPrice);
+        float basePrice = penPrice + bookPrice;
+        float discountSum = (penPrice + bookPrice) * discount;
+        float discountPrice = basePrice - discountSum;
+        System.out.println("стоимость товаров без скидки: " + basePrice);
         System.out.println("сумма скидки: " + discountSum);
         System.out.println("стоимость товаров со скидкой: " + discountPrice);
-        BigDecimal penBd = BigDecimal.valueOf(105.5);
-        BigDecimal bookBd = BigDecimal.valueOf(235.23);
+
+        BigDecimal penPriceBd = BigDecimal.valueOf(105.5);
+        BigDecimal bookPriceBd = BigDecimal.valueOf(235.23);
         BigDecimal discountBd = BigDecimal.valueOf(0.11);
-        BigDecimal withoutDiscountPriceBd = penBd.add(bookBd).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal discountSumBd = withoutDiscountPriceBd.multiply(discountBd)
+        BigDecimal basePriceBd = penPriceBd.add(bookPriceBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal discountSumBd = basePriceBd.multiply(discountBd)
                 .setScale(2, RoundingMode.HALF_UP);
-        BigDecimal discountPriceBd = withoutDiscountPriceBd.subtract(discountSumBd)
+        BigDecimal discountPriceBd = basePriceBd.subtract(discountSumBd)
                 .setScale(2, RoundingMode.HALF_UP);
-        System.out.println("стоимость товаров без скидки (Bd): " + withoutDiscountPriceBd);
+        System.out.println("стоимость товаров без скидки (Bd): " + basePriceBd);
         System.out.println("сумма скидки (Bd): " + discountSumBd);
         System.out.println("стоимость товаров со скидкой (Bd): " + discountPriceBd);
 
         System.out.println("\n3. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
-        int firstCell = 2;
-        int secondCell = 5;
-        System.out.println("Исходные значения переменных:\nfirstCell = " + firstCell + 
-                ", secondCell = " + secondCell);
+        int cellA = 2;
+        int cellB = 5;
+        System.out.println("Исходные значения переменных:\n" + 
+                "A1 = " + cellA + ", B1 = " + cellB);
         System.out.println("Метод: третьей переменной ");
-        int tempValue = secondCell;
-        secondCell = firstCell;
-        firstCell = tempValue;
-        System.out.println("Результат: firstCell = " + firstCell + ", secondCell = " + secondCell);
+        int temp = cellB;
+        cellB = cellA;
+        cellA = temp;
+        System.out.println("Результат: A1 = " + cellA + ", B1 = " + cellB);
         System.out.println("Метод: арифметических операций ");
-        firstCell += secondCell;
-        secondCell = firstCell - secondCell;
-        firstCell -= secondCell;
-        System.out.println("Результат: firstCell = " + firstCell + ", secondCell = " + secondCell);
+        cellA += cellB;
+        cellB = cellA - cellB;
+        cellA -= cellB;
+        System.out.println("Результат: A1 = " + cellA + ", B1 = " + cellB);
         System.out.println("Метод: побитовой операции ^");
-        firstCell ^= secondCell;
-        secondCell = firstCell ^ secondCell;
-        firstCell ^= secondCell;
-        System.out.println("Результат: firstCell = " + firstCell + ", secondCell = " + secondCell);
+        cellA ^= cellB;
+        cellB ^= cellA;
+        cellA ^= cellB;
+        System.out.println("Результат: A1 = " + cellA + ", B1 = " + cellB);
 
         System.out.println("\n4. ДЕКОДИРОВАНИЕ СООБЩЕНИЯ");
-        int firstSymbolCode = 1055;
-        int secondSymbolCode = 1088;
-        int thirdSymbolCode = 1080;
-        int fourthSymbolCode = 1074;
-        int fifthSymbolCode = 1077;
-        int sixthSymbolCode = 1090;
-        char firstSymbol = (char) firstSymbolCode;
-        char secondSymbol = (char) secondSymbolCode;
-        char thirdSymbol = (char) thirdSymbolCode;
-        char fourthSymbol = (char) fourthSymbolCode;
-        char fifthSymbol = (char) fifthSymbolCode;
-        char sixthSymbol = (char) sixthSymbolCode;
-        System.out.printf("%-6d %-6d %-6d %-6d %-6d %-6d\n", firstSymbolCode, secondSymbolCode, 
-                thirdSymbolCode, fourthSymbolCode, fifthSymbolCode, sixthSymbolCode);
-        System.out.printf("%-6c %-6c %-6c %-6c %-6c %-6c\n", firstSymbol, secondSymbol, thirdSymbol, 
-                fourthSymbol, fifthSymbol, sixthSymbol);
+        int code1 = 1055;
+        int code2 = 1088;
+        int code3 = 1080;
+        int code4 = 1074;
+        int code5 = 1077;
+        int code6 = 1090;
+        System.out.printf("%-6d %-6d %-6d %-6d %-6d %-6d\n", 
+                code1, code2, code3, code4, code5, code6);
+        System.out.printf("%-6c %-6c %-6c %-6c %-6c %-6c\n", 
+                code1, code2, code3, code4, code5, code6);
 
         System.out.println("\n5. АНАЛИЗ КОДА ТОВАРА");
         int uniqueCode = 753;
         int productCategory = uniqueCode / 100;
-        int subCategory = uniqueCode % 100 / 10;
+        int subcategory = uniqueCode % 100 / 10;
         int packageType = uniqueCode % 10;
-        int totalSum = productCategory + subCategory + packageType;
-        int verificationCode = productCategory * subCategory * packageType;
-        String productInfo = """
+        int checksum = productCategory + subcategory + packageType;
+        int verificationCode = productCategory * subcategory * packageType;
+        System.out.println("""
                 Код товара: %d
                   категория товара - %d
-                  под категория - %d
+                  подкатегория - %d
                   тип упаковки - %d
                 Контрольная сумма = %d
                 Проверочный код = %d
-                """.formatted(uniqueCode, productCategory, subCategory, packageType, totalSum,
-                verificationCode);
-        System.out.println(productInfo);
+                """.formatted(uniqueCode, productCategory, subcategory, 
+                packageType, checksum, verificationCode));
 
         System.out.println("6. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
         byte temperature = Byte.MAX_VALUE;
@@ -142,34 +133,35 @@ public class VariablesTheme {
                 """.formatted((int) conditionCode, (int) ++conditionCode, (int) --conditionCode));
 
         System.out.println("7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
-        Runtime runtime = Runtime.getRuntime();
-        int cores = runtime.availableProcessors();
-        long totalMemory = runtime.totalMemory() / 1048576;
-        long freeMemory = runtime.freeMemory() / 1048576;
-        long runningMemory = totalMemory - freeMemory;
-        long maxMemory = runtime.maxMemory() / 1048576;
+        Runtime rt = Runtime.getRuntime();
+        int processors = rt.availableProcessors();
+        final int bytesPerMegabyte = 1024 * 1024;
+        float totalMemory = rt.totalMemory() / bytesPerMegabyte;
+        float freeMemory = rt.freeMemory() / bytesPerMegabyte;
+        float usedMemory = totalMemory - freeMemory;
+        float maxMemory = rt.maxMemory() / bytesPerMegabyte;
         System.out.println("""
                 доступное число ядер: %d
                 выделенная память (МБ): %.1f
                 свободная память (Мб): %.1f
                 используемая память (Мб): %.1f
                 максимально доступная для выделения память (Мб): %.1f
-                """.formatted(cores, (double) totalMemory, (double) freeMemory, 
-                (double) runningMemory, (double) maxMemory));
-        String drive = System.getProperty("user.dir").substring(0, System.getProperty("user.dir")
-                .indexOf(":") + 1);
+                """.formatted(processors, totalMemory, freeMemory, usedMemory, maxMemory));
+
+        char drive = System.getProperty("user.dir").charAt(0);
         String osVersion = System.getProperty("os.version");
         String javaVersion = System.getProperty("java.version");
         String fileSeparator = System.getProperty("file.separator");
         System.out.println("""
-                системный диск (буква): %s
+                системный диск (буква): %c
                 версия ОС: %s
                 версия Java: %s
                 символ разделения пути: %s
                 """.formatted(drive, osVersion, javaVersion, fileSeparator));
 
         System.out.println("8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
-        double finish = System.nanoTime() / 1_000_000_000.0;
+        final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        double finish = System.nanoTime() / 1e9;
         double timeElapsed = finish - start;
         LocalTime endLocalTime = LocalTime.now();
         System.out.println("""
