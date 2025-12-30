@@ -6,10 +6,11 @@ import java.time.format.DateTimeFormatter;
 public class VariablesTheme {
     public static void main(String[] args) {
         final LocalTime startLocalTime = LocalTime.now();
-        final double start = System.nanoTime() / 1e9;
+        final double start = System.nanoTime();
 
         System.out.println("1. ВЫВОД ASCII-ГРАФИКИ");
-        System.out.println(String.join("\n", "                     /\\", 
+        System.out.println(String.join(
+                "\n", "                     /\\", 
                 "   J    a  v     v  /  \\", 
                 "   J   a a  v   v  /_( )\\",
                 "J  J  aaaaa  v v  /      \\",
@@ -135,7 +136,7 @@ public class VariablesTheme {
         System.out.println("7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
         Runtime rt = Runtime.getRuntime();
         int processors = rt.availableProcessors();
-        final int bytesPerMegabyte = 1024 * 1024;
+        final float bytesPerMegabyte = 1024 * 1024;
         float totalMemory = rt.totalMemory() / bytesPerMegabyte;
         float freeMemory = rt.freeMemory() / bytesPerMegabyte;
         float usedMemory = totalMemory - freeMemory;
@@ -161,8 +162,8 @@ public class VariablesTheme {
 
         System.out.println("8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
         final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
-        double finish = System.nanoTime() / 1e9;
-        double timeElapsed = finish - start;
+        double finish = System.nanoTime();
+        double timeElapsed = (finish - start) / 1e9;
         LocalTime endLocalTime = LocalTime.now();
         System.out.println("""
                 | Старт проверки | %s |
