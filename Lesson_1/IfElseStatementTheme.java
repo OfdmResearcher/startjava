@@ -56,60 +56,64 @@ public class IfElseStatementTheme {
         System.out.println("\n4. ОПРЕДЕЛЕНИЕ ПЕРВОГО СИМВОЛА НИКНЕЙМА");
         String nickname = "Bob";
         char firstCharacter = nickname.charAt(0);
-        if (firstCharacter > 'a' && firstCharacter < 'z') {
-            System.out.println("Имя " + nickname + " начинается с маленькой буквы " + firstCharacter);
-        } else if (firstCharacter > 'A' && firstCharacter < 'Z') {
-            System.out.println("Имя " + nickname + " начинается с большой буквы " + firstCharacter);
-        } else if (firstCharacter > '0' && firstCharacter < '9') {
-            System.out.println("Имя " + nickname + " начинается с цифры " + firstCharacter);
+        System.out.print("Имя " + nickname + " начинается с ");
+        if (firstCharacter >= 'a' && firstCharacter <= 'z') {
+            System.out.println("маленькой буквы " + firstCharacter);
+        } else if (firstCharacter >= 'A' && firstCharacter <= 'Z') {
+            System.out.println("большой буквы " + firstCharacter);
+        } else if (firstCharacter >= '0' && firstCharacter <= '9') {
+            System.out.println("цифры " + firstCharacter);
         } else {
-            System.out.println("Имя " + nickname + " начинается с символа " + firstCharacter);
+            System.out.println("символа " + firstCharacter);
         }
+
+        System.out.print("Имя " + nickname + " начинается с ");
         if (Character.isLowerCase(firstCharacter)) {
-            System.out.println("Имя " + nickname + " начинается с маленькой буквы " + firstCharacter);
+            System.out.println("маленькой буквы " + firstCharacter);
         } else if (Character.isUpperCase(firstCharacter)) {
-            System.out.println("Имя " + nickname + " начинается с большой буквы " + firstCharacter);
+            System.out.println("большой буквы " + firstCharacter);
         } else if (Character.isDigit(firstCharacter)) {
-            System.out.println("Имя " + nickname + " начинается с цифры " + firstCharacter);
+            System.out.println("цифры " + firstCharacter);
         } else {
-            System.out.println("Имя " + nickname + " начинается с символа " + firstCharacter);
+            System.out.println("символа " + firstCharacter);
         }
 
         System.out.println("\n5. ИНВЕНТАРИЗАЦИЯ");
-        int serialNumber = 123;
-        int deviceNumber = 908;
-        int serialNumberHundreds = serialNumber / 100;
-        int deviceNumberHundreds = deviceNumber / 100;
-        int serialNumberTens = serialNumber % 100 / 10;
-        int deviceNumberTens = deviceNumber % 100 / 10;
-        int serialNumberOnes = serialNumber % 10;
-        int deviceNumberOnes = deviceNumber % 10;
-        boolean hasPartialMatch = (serialNumberHundreds == deviceNumberHundreds ? true : false) || 
-                (serialNumberTens == deviceNumberTens ? true : false) || 
-                (serialNumberOnes == deviceNumberOnes ? true : false);
-        if (serialNumber == deviceNumber) {
-            System.out.println("[№" + deviceNumber + "]: компьютер на 3-м этаже в кабинете 2");
+        int dbSn = 103;
+        int deviceSn = 908;
+        if (dbSn == deviceSn) {
+            System.out.println("[№" + deviceSn + "]: компьютер на 3-м этаже в кабинете 2");
         } else {
+            int dbSnHundreds = dbSn / 100;
+            int deviceSnHundreds = deviceSn / 100;
+            int dbSnTens = dbSn % 100 / 10;
+            int deviceSnTens = deviceSn % 100 / 10;
+            int dbSnOnes = dbSn % 10;
+            int deviceSnOnes = deviceSn % 10;
+            boolean hasPartialMatch = (dbSnHundreds == deviceSnHundreds) || 
+                    (dbSnTens == deviceSnTens) || (dbSnOnes == deviceSnOnes);
             if (hasPartialMatch) {
+                String actualSn = 
+                        (dbSnHundreds == deviceSnHundreds ? String.valueOf(deviceSnHundreds) : "_") +
+                        (dbSnTens == deviceSnTens ? String.valueOf(deviceSnTens) : "_") +
+                        (dbSnOnes == deviceSnOnes ? String.valueOf(deviceSnOnes) : "_");
                 System.out.print("""
                         Нет полного совпадения:
                         База данных: [№%d]
-                        Фактический: [№%d]
-                        """.formatted(serialNumber, deviceNumber));
+                        Фактический: [№%s]
+                        """.formatted(dbSn, actualSn));
             } else {
-                System.out.println("[№" + deviceNumber + "]: оборудование не идентифицировано");
+                System.out.println("[№" + deviceSn + "]: оборудование не идентифицировано");
             }
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
         float deposit = 321123.79f;
-        float interestRate = 0;
+        float interestRate = 0.1f;
         if (deposit < 100_000) {
             interestRate = 0.05f;
         } else if (deposit >= 100_000 && deposit <= 300_000) {
             interestRate = 0.07f;
-        } else {
-            interestRate = 0.1f;
         }
         float accruedInterestAmount = deposit * interestRate;
         float totalSum = accruedInterestAmount + deposit;
@@ -120,13 +124,11 @@ public class IfElseStatementTheme {
                 """.formatted(deposit, accruedInterestAmount, totalSum));
 
         BigDecimal depositBd = BigDecimal.valueOf(321123.79);
-        BigDecimal interestRateBd;
+        BigDecimal interestRateBd = BigDecimal.valueOf(0.1);
         if (depositBd.compareTo(BigDecimal.valueOf(100000)) < 0) {
             interestRateBd = BigDecimal.valueOf(0.05);
         } else if (depositBd.compareTo(BigDecimal.valueOf(300000)) <= 0) {
             interestRateBd = BigDecimal.valueOf(0.07);
-        } else {
-            interestRateBd = BigDecimal.valueOf(0.1);
         }
         BigDecimal accruedInterestAmountBd = depositBd.multiply(interestRateBd)
                 .setScale(2, RoundingMode.HALF_UP);
@@ -157,8 +159,8 @@ public class IfElseStatementTheme {
         } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingGrade = 4;
         }
-        double averageGrade = (historyGrade + programmingGrade) / 2;
-        double averagePercent = (historyPercent + programmingPercent) / 2;
+        double averageGrade = (historyGrade + programmingGrade) / 2.0;
+        double averagePercent = (historyPercent + programmingPercent) / 2.0;
         System.out.println("""
                 История - %s
                 Программирование - %s
@@ -170,15 +172,10 @@ public class IfElseStatementTheme {
         BigDecimal monthlyRevenue = BigDecimal.valueOf(13025.233);
         BigDecimal monthlyRent = BigDecimal.valueOf(5123.018);
         BigDecimal monthlyProductionCost = BigDecimal.valueOf(9001.729);
-        BigDecimal monthCount = BigDecimal.valueOf(12);
-        BigDecimal annualRevenue = monthlyRevenue.multiply(monthCount)
-                .setScale(2, RoundingMode.HALF_UP);
-        BigDecimal annualRent = monthlyRent.multiply(monthCount).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal annualProductionCost = monthlyProductionCost.multiply(monthCount)
-                .setScale(2, RoundingMode.HALF_UP);
-        BigDecimal annualProfit = annualRevenue.subtract(annualRent)
-                .setScale(2, RoundingMode.HALF_UP)
-                .subtract(annualProductionCost).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal annualProfit = 
+                monthlyRevenue.subtract(monthlyRent).setScale(2, RoundingMode.HALF_UP)
+                .subtract(monthlyProductionCost).setScale(2, RoundingMode.HALF_UP)
+                .multiply(BigDecimal.valueOf(12)).setScale(2, RoundingMode.HALF_UP);
         System.out.print("Прибыль за год: ");
         if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
             System.out.print("+");
