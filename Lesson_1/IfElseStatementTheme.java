@@ -172,9 +172,11 @@ public class IfElseStatementTheme {
         BigDecimal monthlyRevenue = BigDecimal.valueOf(13025.233);
         BigDecimal monthlyRent = BigDecimal.valueOf(5123.018);
         BigDecimal monthlyProductionCost = BigDecimal.valueOf(9001.729);
-        BigDecimal annualProfit = 
-                monthlyRevenue.subtract(monthlyRent).subtract(monthlyProductionCost)
-                .multiply(BigDecimal.valueOf(12)).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal annualProfit = monthlyRevenue
+                .subtract(monthlyRent)
+                .subtract(monthlyProductionCost)
+                .multiply(BigDecimal.valueOf(12))
+                .setScale(2, RoundingMode.HALF_UP);
         System.out.print("Прибыль за год: ");
         if (annualProfit.compareTo(BigDecimal.ZERO) > 0) {
             System.out.print("+");
