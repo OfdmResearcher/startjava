@@ -18,7 +18,7 @@ public class CyclesTheme {
                 System.out.print("*");
             }
             System.out.print(" ");
-            for (int k = 0; k < i * 2 + 1; k++) {
+            for (int j = 0; j < i * 2 + 1; j++) {
                 System.out.print("^");
             }
             System.out.println(" ");
@@ -99,26 +99,26 @@ public class CyclesTheme {
         originalNumber = 101002;
         currNumber = originalNumber;
         int threeDigitsCount = 0;
-        int sumLeft = 0;
-        int sumRight = 0;
+        int leftSum = 0;
+        int rightSum = 0;
         while (currNumber > 0) {
             if (threeDigitsCount < 3) {
-                sumLeft = sumLeft + (currNumber % 10);
+                rightSum = rightSum + (currNumber % 10);
                 threeDigitsCount++;
             } else {
-                sumRight = sumRight + (currNumber % 10);
+                leftSum = leftSum + (currNumber % 10);
             }
             currNumber /= 10;
         }
         int leftHalf = originalNumber / 1000;
         int rightHalf = originalNumber % 1000;
-        String luckyStatus = sumRight == sumLeft ? "счастливое число" : "несчастливое число";
+        String luckyStatus = leftSum == rightSum ? "счастливое число" : "несчастливое число";
         System.out.println("""
                 %d - %s
                 Сумма цифр %03d = %d
                 Сумма цифр %03d = %d
                 """.formatted(originalNumber, luckyStatus, rightHalf, 
-                        sumLeft, leftHalf, sumRight));
+                        rightSum, leftHalf, leftSum));
 
         System.out.println("8. ПРОСТОЙ ГЕНЕРАТОР ПАРОЛЯ");
         Random random = new Random();
@@ -130,11 +130,11 @@ public class CyclesTheme {
         for (int i = 0; i < 8; i++) {
             char symbol = (char) random.nextInt(33, 123);
             password += symbol;
-            if (Character.isLowerCase(password.charAt(i))) {
+            if (Character.isLowerCase(symbol)) {
                 hasLower = true;
-            } else if (Character.isUpperCase(password.charAt(i))) {
+            } else if (Character.isUpperCase(symbol)) {
                 hasUpper = true;
-            } else if (Character.isDigit(password.charAt(i))) {
+            } else if (Character.isDigit(symbol)) {
                 hasDigit = true;
             } else {
                 hasSpecial = true;
