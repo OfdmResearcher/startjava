@@ -1,52 +1,47 @@
 public class Calculator {
     public void calculate(int firstNumber, int secondNumber, char sign) {
+        if (secondNumber == 0 && (sign == '/' || sign == '%')) {
+            System.out.println("Ошибка: деление на ноль запрещено");
+            return;
+        }
+        int result = 0;
         switch (sign) {
             case '+':
-                System.out.println("Результат вычисления: " + (firstNumber + secondNumber));
+                result = firstNumber + secondNumber;
                 break;
             case '-':
-                System.out.println("Результат вычисления: " + (firstNumber - secondNumber));
+                result = firstNumber - secondNumber;
                 break;
             case '*':
-                System.out.println("Результат вычисления: " + (firstNumber * secondNumber));
+                result = firstNumber * secondNumber;
                 break;
             case '/':
-                if (secondNumber == 0) {
-                    System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    System.out.println("Результат вычисления: " + (firstNumber / secondNumber));
-                }
+                result = firstNumber / secondNumber;
                 break;
             case '%':
-                if (secondNumber == 0) {
-                    System.out.println("Ошибка: деление на ноль запрещено");
-                } else {
-                    System.out.println("Результат вычисления: " + (firstNumber % secondNumber));
-                }
+                result = firstNumber % secondNumber;
                 break;
             case '^':
                 if (firstNumber == 0 && (secondNumber < 0 || secondNumber == 0)) {
                     System.out.println("Ошибка: возведение ноля" + 
                             " в нулевую или отрицательную степень запрещено");
-                } else {
-                    double result = 1;
-                    int absoluteValue = secondNumber < 0 ? secondNumber * -1 : secondNumber;
-                    for (int i = 0; i < absoluteValue; i++) {
-                        if (secondNumber > 0) {
-                            result *= firstNumber;
-                        } else {
-                            result = result * (1.0 / firstNumber);
-                        }
-                    }
-                    if (secondNumber < 0) {
-                        System.out.println("Результат вычисления: " + result);
-                    } else {
-                        System.out.println("Результат вычисления: " + (int) result);
-                    }
+                    return;
+                } 
+                result = 1;
+                int absoluteValue = Math.abs(secondNumber);
+                for (int i = 0; i < absoluteValue; i++) {
+                    result *= firstNumber;
+                }
+                if (secondNumber < 0) {
+                    double doubleResult = 1.0 / result;
+                    System.out.println("Результат вычисления: " + doubleResult);
+                    return;
                 }
                 break;
             default:
                 System.out.println("Ошибка: операция '" + sign + "' не поддерживается");
+                return;
         }
+        System.out.println("Результат вычисления: " + result);
     }
 }
