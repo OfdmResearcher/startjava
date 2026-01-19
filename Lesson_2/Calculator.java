@@ -28,8 +28,8 @@ public class Calculator {
                     return;
                 } 
                 result = 1;
-                int absoluteValue = Math.abs(secondNumber);
-                for (int i = 0; i < absoluteValue; i++) {
+                int exponent = Math.abs(secondNumber);
+                for (int i = 0; i < exponent; i++) {
                     result *= firstNumber;
                 }
                 if (secondNumber < 0) {

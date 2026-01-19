@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String answer = "yes";
-        while (answer.equals("yes")) {
+        String answer;
+        do {
             System.out.print("Введите первое число: ");
             int firstNumber = scanner.nextInt();
 
@@ -16,13 +16,10 @@ public class CalculatorTest {
 
             Calculator calculator = new Calculator();
             calculator.calculate(firstNumber, secondNumber, operation);
-
-            System.out.println("Хотите продолжить вычисления? [yes/no]:");
-            answer = scanner.next();
-            while (!answer.equals("yes") && !answer.equals("no")) {
+            do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 answer = scanner.next();
-            }
-        }
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }
