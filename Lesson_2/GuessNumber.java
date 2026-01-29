@@ -26,8 +26,7 @@ public class GuessNumber {
     }
 
     private boolean isGuessed(Player player, Scanner scanner, int hiddenNumber) {
-        System.out.println("Игрок " + player.getName() + ", введите число: ");
-        player.setNumber(scanner.nextInt());
+        player.setNumber(enterNumber(player, scanner));
         if (player.getNumber() == hiddenNumber) {
             System.out.println("Выиграл: " + player.getName());
             return true;
@@ -38,5 +37,10 @@ public class GuessNumber {
         } 
         System.out.println("Введенное число меньше загаданного!");
         return false;
+    }
+
+    private int enterNumber(Player player, Scanner scanner) {
+        System.out.println("Игрок " + player.getName() + ", введите число: ");
+        return scanner.nextInt();
     }
 }
