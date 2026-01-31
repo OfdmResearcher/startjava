@@ -1,37 +1,37 @@
 public class Main {
     public static void main(String[] args) {
+        doNonBooleanMethods();
+        doBooleanMethods();
+    }
+
+    public static void doNonBooleanMethods() {
         NonBooleanMethods nonBooleanMethods = new NonBooleanMethods();
-        BooleanMethods booleanMethods = new BooleanMethods();
-        callNonBooleanMethods(nonBooleanMethods);
-        callBooleanMethods(booleanMethods);
-    }
-
-    public static void callNonBooleanMethods(NonBooleanMethods nonBooleanMethods) {
-        nonBooleanMethods.findJavaBookSentenceLongestWord();
-        nonBooleanMethods.chooseMacOsTextEditorMenuItem();
-        nonBooleanMethods.findSchool1234AverageScore();
-        nonBooleanMethods.countWarAndPeaceUniqueWords();
+        nonBooleanMethods.findLongestWord();
+        nonBooleanMethods.chooseMenuItem();
+        nonBooleanMethods.calculateAverageScore();
+        nonBooleanMethods.countUniqueWords();
         nonBooleanMethods.showError();
-        nonBooleanMethods.synchronizeCloudStorageData();
-        nonBooleanMethods.recoverBackupFrom11032024Data();
-        nonBooleanMethods.stopMp3FileDownload();
-        nonBooleanMethods.resetMiVacuumCleanerSettings();
-        nonBooleanMethods.recordUsbDriveFilePathData();
-        nonBooleanMethods.convertCelsiusToFahrenheitTemperature();
-        nonBooleanMethods.enterThreeArgumentsMathExpression();
-        nonBooleanMethods.findNeedForSpeedGameBestPlayer();
-        nonBooleanMethods.findAuthorNameBook();
+        nonBooleanMethods.synchronizeData();
+        nonBooleanMethods.recoverBackupData();
+        nonBooleanMethods.pauseDownload();
+        nonBooleanMethods.resetSettings();
+        nonBooleanMethods.saveDataToFile();
+        nonBooleanMethods.convertTemperature();
+        nonBooleanMethods.enterMathExpression();
+        nonBooleanMethods.findBestPlayer();
+        nonBooleanMethods.findBookByAuthor();
     }
 
-    public static void callBooleanMethods(BooleanMethods booleanMethods) {
+    public static void doBooleanMethods() {
+        BooleanMethods booleanMethods = new BooleanMethods();
         System.out.println(booleanMethods.isProgramFinished() + "\n");        
-        System.out.println(booleanMethods.hasUniqueDigitSequence() + "\n");
-        System.out.println(booleanMethods.isLetterEnteredByUser() + "\n");
+        System.out.println(booleanMethods.hasUniqueDigit() + "\n");
+        System.out.println(booleanMethods.isLetterEntered() + "\n");
         System.out.println(booleanMethods.hasEqualDigits() + "\n");
-        System.out.println(booleanMethods.hasAttemptsMarioGame() + "\n");
-        System.out.println(booleanMethods.isUserInputEmptyString() + "\n");
-        System.out.println(booleanMethods.isEvenNumberThrewByComputer() + "\n");
-        System.out.println(booleanMethods.isValidSsdFilePath() + "\n");
-        System.out.println(booleanMethods.isExistFile() + "\n");
+        System.out.println(booleanMethods.hasAttemptsLeft() + "\n");
+        System.out.println(booleanMethods.isEmptyInput() + "\n");
+        System.out.println(booleanMethods.isEvenNumber() + "\n");
+        System.out.println(booleanMethods.isValidFilePath() + "\n");
+        System.out.println(booleanMethods.isFileExists() + "\n");
     }
 }
