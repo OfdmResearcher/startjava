@@ -1,37 +1,38 @@
 public class Main {
     public static void main(String[] args) {
         doNonBooleanMethods();
+        System.out.println();
         doBooleanMethods();
     }
 
-    public static void doNonBooleanMethods() {
-        NonBooleanMethods nonBooleanMethods = new NonBooleanMethods();
-        nonBooleanMethods.findLongestWord();
-        nonBooleanMethods.chooseMenuItem();
-        nonBooleanMethods.calculateAverageScore();
-        nonBooleanMethods.countUniqueWords();
-        nonBooleanMethods.showError();
-        nonBooleanMethods.synchronizeData();
-        nonBooleanMethods.recoverBackupData();
-        nonBooleanMethods.pauseDownload();
-        nonBooleanMethods.resetSettings();
-        nonBooleanMethods.saveDataToFile();
-        nonBooleanMethods.convertTemperature();
-        nonBooleanMethods.enterMathExpression();
-        nonBooleanMethods.findBestPlayer();
-        nonBooleanMethods.findBookByAuthor();
+    private static void doNonBooleanMethods() {
+        NonBooleanMethods nonBm = new NonBooleanMethods();
+        nonBm.findLongestWord();
+        nonBm.chooseMenuItem();
+        nonBm.calculateAverageMark();
+        nonBm.countUniqueWords();
+        nonBm.showError();
+        nonBm.syncData();
+        nonBm.recoverBackupData();
+        nonBm.pauseDownload();
+        nonBm.resetToDefaults();
+        nonBm.writeToFile();
+        nonBm.convertTemperature();
+        nonBm.enterMathExpression();
+        nonBm.findBestPlayer();
+        nonBm.findBookByAuthor();
     }
 
-    public static void doBooleanMethods() {
-        BooleanMethods booleanMethods = new BooleanMethods();
-        System.out.println(booleanMethods.isProgramFinished() + "\n");        
-        System.out.println(booleanMethods.hasUniqueDigit() + "\n");
-        System.out.println(booleanMethods.isLetterEntered() + "\n");
-        System.out.println(booleanMethods.hasEqualDigits() + "\n");
-        System.out.println(booleanMethods.hasAttemptsLeft() + "\n");
-        System.out.println(booleanMethods.isEmptyInput() + "\n");
-        System.out.println(booleanMethods.isEvenNumber() + "\n");
-        System.out.println(booleanMethods.isValidFilePath() + "\n");
-        System.out.println(booleanMethods.isFileExists() + "\n");
+    private static void doBooleanMethods() {
+        BooleanMethods bm = new BooleanMethods();
+        System.out.println(bm.isProgramFinished());        
+        System.out.println(bm.hasUniqueDigit());
+        System.out.println(bm.isSingleLetterEntered());
+        System.out.println(bm.hasEqualDigits());
+        System.out.println(bm.hasRemainingAttempts());
+        System.out.println(bm.isInputEmpty());
+        System.out.println(bm.isEvenNumber());
+        System.out.println(bm.isPathValid());
+        System.out.println(bm.isFilePresent());
     }
 }
