@@ -25,14 +25,14 @@ public class Main {
 
     private static void doBooleanMethods() {
         BooleanMethods bm = new BooleanMethods();
-        System.out.println(bm.isProgramFinished());        
+        System.out.println(bm.isFinishedProgram());        
         System.out.println(bm.hasUniqueDigit());
         System.out.println(bm.isSingleLetterEntered());
         System.out.println(bm.hasEqualDigits());
         System.out.println(bm.hasRemainingAttempts());
-        System.out.println(bm.isInputEmpty());
+        System.out.println(bm.isEmptyInput());
         System.out.println(bm.isEvenNumber());
-        System.out.println(bm.isPathValid());
-        System.out.println(bm.isFilePresent());
+        System.out.println(bm.isValidPath());
+        System.out.println(bm.isPresentFile());
     }
 }
