@@ -11,7 +11,7 @@ public class BooleanMethods {
         return false;
     }
 
-    public boolean isSingleLetterEntered() {
+    public boolean isLetter() {
         System.out.print(Methods.getMethodName() +
                 "() -> пользователь ввел букву или что-то другое? ");
         return false;
@@ -23,7 +23,7 @@ public class BooleanMethods {
         return false;
     }
 
-    public boolean hasRemainingAttempts() {
+    public boolean hasAttempts() {
         System.out.print(Methods.getMethodName() + "() -> в игре \"Марио\" остались попытки? ");
         return true;
     }

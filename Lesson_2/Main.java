@@ -27,9 +27,9 @@ public class Main {
         BooleanMethods bm = new BooleanMethods();
         System.out.println(bm.isFinishedProgram());        
         System.out.println(bm.hasUniqueDigit());
-        System.out.println(bm.isSingleLetterEntered());
+        System.out.println(bm.isLetter());
         System.out.println(bm.hasEqualDigits());
-        System.out.println(bm.hasRemainingAttempts());
+        System.out.println(bm.hasAttempts());
         System.out.println(bm.isEmptyInput());
         System.out.println(bm.isEvenNumber());
         System.out.println(bm.isValidPath());
