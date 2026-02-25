@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.calculator;
+
 public class Calculator {
     public void calculate(int firstNumber, int secondNumber, char sign) {
         if (secondNumber == 0 && (sign == '/' || sign == '%')) {
