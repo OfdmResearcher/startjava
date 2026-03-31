@@ -1,8 +1,8 @@
-package com.startjava.lesson_2_3.robot;
+package com.startjava.lesson_2_3_4.robot;
 
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger strikerEureka = new Jaeger();
+        com.startjava.lesson_2_3_4.robot.Jaeger strikerEureka = new com.startjava.lesson_2_3_4.robot.Jaeger();
         strikerEureka.setModelName("Striker Eureka");
         strikerEureka.setStatus("Destroyed");
         strikerEureka.setHeight(2.1f);
@@ -13,7 +13,7 @@ public class JaegerTest {
         strikerEureka.move();
         System.out.println();
 
-        Jaeger gipsyDanger = new Jaeger("Gipsy Danger", "Active", 2.3f);
+        com.startjava.lesson_2_3_4.robot.Jaeger gipsyDanger = new com.startjava.lesson_2_3_4.robot.Jaeger("Gipsy Danger", "Active", 2.3f);
         System.out.println("modelName = " + gipsyDanger.getModelName());
         System.out.println("status = " + gipsyDanger.getStatus());
         System.out.println("height = " + gipsyDanger.getHeight());
