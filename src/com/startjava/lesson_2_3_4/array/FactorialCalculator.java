@@ -2,14 +2,14 @@ package com.startjava.lesson_2_3_4.array;
 
 public class FactorialCalculator {
     public static void main(String[] args) {
-        calculateFactorial();
-        calculateFactorial((int[]) null);
-        calculateFactorial(-5);
-        calculateFactorial(7, 0, 21);
-        calculateFactorial(1, 20, 5, -3);
+        processFactorials();
+        processFactorials((int[]) null);
+        processFactorials(-5);
+        processFactorials(7, 0, 21);
+        processFactorials(1, 20, 5, -3);
     }
 
-    private static void calculateFactorial(int... numbers) {
+    private static void processFactorials(int... numbers) {
         if (numbers == null) {
             System.out.println("Ошибка в данных");
             return;
@@ -18,17 +18,17 @@ public class FactorialCalculator {
             System.out.println("Нет данных");
             return;
         }
-        long[] factorials = getFactorials(numbers);
-        printFactorials(numbers, factorials);
+        long[] factorials = calculateFactorials(numbers);
+        printFactorialExpressions(numbers, factorials);
     }
 
-    private static long[] getFactorials(int... numbers) {
+    private static long[] calculateFactorials(int... numbers) {
         int length = numbers.length;
         long[] factorials = new long[length];
         for (int i = 0; i < length; i++) {
             int number = numbers[i];
-            factorials[i] = 1;
             if (number >= 0 && number <= 20) {
+                factorials[i] = 1;
                 for (int j = 1; j <= number; j++) {
                     factorials[i] *= j;
                 }
@@ -37,32 +37,31 @@ public class FactorialCalculator {
         return factorials;
     }
 
-    private static void printFactorials(int[] numbers, long[] factorials) {
+    private static void printFactorialExpressions(int[] numbers, long[] factorials) {
         int length = numbers.length;
+        StringBuilder expression = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
             int number = numbers[i];
-            factorials[i] = 1;
             if (number < 0) {
-                stringBuilder.append("Ошибка: факториал ").append(number).append("! не определен");
-                System.out.println(stringBuilder);
+                expression.append("Ошибка: факториал ").append(number).append("! не определен");
+                System.out.println(expression);
             } else if (number == 0 || number == 1) {
-                stringBuilder.append(number).append("! = 1");
-                System.out.println(stringBuilder);
+                expression.append(number).append("! = 1");
+                System.out.println(expression);
             } else if (number > 20) {
-                stringBuilder.append("Ошибка: факториал ").append(number)
+                expression.append("Ошибка: факториал ").append(number)
                         .append("! слишком велик (максимум 20!)");
-                System.out.println(stringBuilder);
+                System.out.println(expression);
             } else {
-                stringBuilder.append(number).append("! = ");
+                expression.append(number).append("! = ");
                 for (int j = 1; j <= number; j++) {
-                    factorials[i] *= j;
-                    stringBuilder.append(j);
-                    stringBuilder.append(j < number ? " * " : " = ");
+                    expression.append(j);
+                    expression.append(j < number ? " * " : " = ");
                 }
-                stringBuilder.append(factorials[i]);
-                System.out.println(stringBuilder);
+                expression.append(factorials[i]);
+                System.out.println(expression);
             }
+            expression.setLength(0);
         }
     }
 }
