@@ -44,14 +44,11 @@ public class FactorialCalculator {
             int number = numbers[i];
             if (number < 0) {
                 expression.append("Ошибка: факториал ").append(number).append("! не определен");
-                System.out.println(expression);
             } else if (number == 0 || number == 1) {
                 expression.append(number).append("! = 1");
-                System.out.println(expression);
             } else if (number > 20) {
                 expression.append("Ошибка: факториал ").append(number)
                         .append("! слишком велик (максимум 20!)");
-                System.out.println(expression);
             } else {
                 expression.append(number).append("! = ");
                 for (int j = 1; j <= number; j++) {
@@ -59,8 +56,8 @@ public class FactorialCalculator {
                     expression.append(j < number ? " * " : " = ");
                 }
                 expression.append(factorials[i]);
-                System.out.println(expression);
             }
+            System.out.println(expression);
             expression.setLength(0);
         }
     }
